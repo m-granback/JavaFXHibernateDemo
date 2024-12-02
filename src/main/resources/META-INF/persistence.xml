@@ -5,7 +5,9 @@
 
     <persistence-unit name="myconfig">
 
-        <!-- <class>org.hibernate.example.Book</class> -->
+         <class>se.verran.javafxhibernatedemo.entities.Customer</class>
+         <class>se.verran.javafxhibernatedemo.entities.MobilePhone</class>
+         <class>se.verran.javafxhibernatedemo.entities.Car</class>
 
         <properties>
             <!-- MySQL -->
