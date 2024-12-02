@@ -16,6 +16,10 @@ public class Car {
     @Column(name = "car_make", length = 20, nullable = false)
     private String make;
 
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
+
     public Car() {
     }
 

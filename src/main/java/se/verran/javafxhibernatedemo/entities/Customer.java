@@ -19,8 +19,7 @@ public class Customer {
     @Column(name = "last_name", length = 50, nullable = false)
     private String lastName;
 
-    @OneToMany
-    @JoinColumn(name = "owner_id")
+    @OneToMany(mappedBy = "customer")
     private List<Car> cars = new ArrayList<>();
 
     public Customer() {
