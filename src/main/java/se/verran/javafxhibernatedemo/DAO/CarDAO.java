@@ -94,7 +94,7 @@ public class CarDAO {
             entityManager.remove(car);
 
             // Ett annat sätt att skriva det på:
-            entityManager.remove(entityManager.contains(car) ? car : entityManager.merge(car));
+            //entityManager.remove(entityManager.contains(car) ? car : entityManager.merge(car));
 
             transaction.commit();
         } catch (Exception e){
