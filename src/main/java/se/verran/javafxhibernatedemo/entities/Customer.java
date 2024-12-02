@@ -19,8 +19,11 @@ public class Customer {
     @Column(name = "last_name", length = 50, nullable = false)
     private String lastName;
 
-    @OneToMany(mappedBy = "customer")
+    @OneToMany(mappedBy = "owner", orphanRemoval = true, fetch = FetchType.EAGER)
     private List<Car> cars = new ArrayList<>();
+
+    @OneToMany(mappedBy = "owner", orphanRemoval = true, fetch = FetchType.EAGER)
+    private List<MobilePhone> mobilePhones = new ArrayList<>();
 
     public Customer() {
     }
@@ -28,6 +31,14 @@ public class Customer {
     public Customer(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
+    }
+
+    public List<MobilePhone> getMobilePhones() {
+        return mobilePhones;
+    }
+
+    public void setMobilePhones(List<MobilePhone> mobilePhones) {
+        this.mobilePhones = mobilePhones;
     }
 
     public int getId() {

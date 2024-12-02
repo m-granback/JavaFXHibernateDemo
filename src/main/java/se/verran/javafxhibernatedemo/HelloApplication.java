@@ -5,6 +5,8 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import se.verran.javafxhibernatedemo.DAO.CarDAO;
+import se.verran.javafxhibernatedemo.DAO.CustomerDAO;
+import se.verran.javafxhibernatedemo.DAO.MobilePhoneDAO;
 import se.verran.javafxhibernatedemo.entities.Car;
 
 import java.io.IOException;
@@ -31,8 +33,10 @@ public class HelloApplication extends Application {
         carDAO.deleteCar(testCar);
 
 
-
-
+        CustomerDAO customerDAO = new CustomerDAO();
+//        customerDAO.deleteCustomerById(1);    // Denna kommer att använda sig av orphanRemoval: när inte längre telefonen är relevant(var beroende av just denna customern), ta bort även den
+//        MobilePhoneDAO mobilePhoneDAO = new MobilePhoneDAO();
+//        mobilePhoneDAO.deletePhoneById(1);
 
 
 

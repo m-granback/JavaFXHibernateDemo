@@ -16,9 +16,9 @@ public class Car {
     @Column(name = "car_make", length = 20, nullable = false)
     private String make;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "customer_id")
-    private Customer customer;
+    private Customer owner;
 
     public Car() {
     }
@@ -26,6 +26,20 @@ public class Car {
     public Car(String color, String make) {
         this.color = color;
         this.make = make;
+    }
+
+    public Customer getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Customer owner) {
+        this.owner = owner;
+    }
+
+    public Car(String color, String make, Customer owner) {
+        this.color = color;
+        this.make = make;
+        this.owner = owner;
     }
 
     public int getId() {
