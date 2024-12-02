@@ -1,0 +1,35 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
+             version="2.0">
+
+    <persistence-unit name="myconfig">
+
+        <!-- <class>org.hibernate.example.Book</class> -->
+
+        <properties>
+            <!-- MySQL -->
+            <property name="jakarta.persistence.jdbc.url"
+                      value="jdbc:mysql://192.168.1.236:3306/cardealer"/>
+
+            <!-- Credentials -->
+            <property name="jakarta.persistence.jdbc.user"
+                      value="bill"/>
+            <property name="jakarta.persistence.jdbc.password"
+                      value="clinton"/>
+
+            <!-- Automatic schema export -->
+            <property name="jakarta.persistence.schema-generation.database.action"
+                      value="drop-and-create"/>
+            <!-- <property name="hibernate.hbm2ddl" value="create-drop"/> -->
+
+            <!-- SQL statement logging -->
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.highlight_sql" value="true"/>
+
+        </properties>
+
+    </persistence-unit>
+
+</persistence>
