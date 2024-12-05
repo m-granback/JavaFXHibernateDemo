@@ -19,10 +19,10 @@ public class Customer {
     @Column(name = "last_name", length = 50, nullable = false)
     private String lastName;
 
-    @OneToMany(mappedBy = "owner", orphanRemoval = true, fetch = FetchType.EAGER)
+    @OneToMany(/*mappedBy = "owner",*/ orphanRemoval = true/*, fetch = FetchType.EAGER*/)
     private List<Car> cars = new ArrayList<>();
 
-    @OneToMany(mappedBy = "owner", orphanRemoval = true, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "owner", orphanRemoval = true, fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     private List<MobilePhone> mobilePhones = new ArrayList<>();
 
     public Customer() {

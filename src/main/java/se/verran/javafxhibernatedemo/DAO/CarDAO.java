@@ -20,8 +20,6 @@ public class CarDAO {
             transaction = entityManager.getTransaction();
             transaction.begin();
             entityManager.persist(car);
-            car.setColor("Purple");
-            entityManager.persist(car);
             transaction.commit();
             return true;
         } catch (Exception e){
@@ -59,16 +57,7 @@ public class CarDAO {
         try {
             transaction = entityManager.getTransaction();
             transaction.begin();
-            if(entityManager.contains(carToUpdate)){
-                System.out.println("Bilen finns i poolen");
-                entityManager.persist(carToUpdate);
-
-            } else {
-                System.out.println("Finns inte i poolen");
-                Car revivedCar = entityManager.merge(carToUpdate);
-                System.out.println(revivedCar.getId() + " is alive");
-            }
-            entityManager.merge(carToUpdate);
+            entityManager.persist(entityManager.contains(carToUpdate) ? carToUpdate : entityManager.merge(carToUpdate));
             transaction.commit();
         } catch (Exception e){
             System.out.println(e.getMessage());
